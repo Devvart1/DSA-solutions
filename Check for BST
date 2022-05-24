@@ -1,0 +1,16 @@
+
+     bool isBSTS(Node* root,int min,int max)
+     {
+         if(root==NULL)
+         return 1;
+         
+         if(root->data>=max||root->data<=min) return 0;
+          return isBSTS(root->left,min,root->data)&&isBSTS(root->right,root->data,max);
+     }
+    bool isBST(Node* root) 
+    {
+      
+       isBSTS(root,-999999,99999999);
+     
+    }
+    //https://practice.geeksforgeeks.org/problems/check-for-bst/1#
