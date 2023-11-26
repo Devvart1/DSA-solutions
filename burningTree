@@ -1,0 +1,4 @@
+ int minTime(Node* root, int target) 
+    {
+        // Your code goes here
+    }

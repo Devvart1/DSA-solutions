@@ -1,0 +1,16 @@
+tc 1
+green [ -1 ]
+ind_c [ ]
+tc 2
+green [ -1 ]
+ind_c [ ]
+tc 3
+green [ ]
+ind_c [ ]
+tc 4
+green [ ]
+ind_c [ ]
+tc 5
+green [ ]
+ind_c [ ]
+Time: 99

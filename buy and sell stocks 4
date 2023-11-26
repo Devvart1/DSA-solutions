@@ -1,0 +1,7 @@
+class Solution {
+public:
+  int sol(vector<int> prices,int i,ink )
+    int maxProfit(int k, vector<int>& prices) {
+        
+    }
+};
