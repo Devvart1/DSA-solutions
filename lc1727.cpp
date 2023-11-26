@@ -1,3 +1,6 @@
+//Approach-1 (Using sorting)
+//T.C : (m * nlogn)
+//S.C : O(m*n)
 class Solution {
 public:
     int largestSubmatrix(vector<vector<int>>& matrix) {
@@ -7,16 +10,19 @@ public:
 
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
-                if (i > 0 and matrix[i][j])
-                    matrix[i][j] = +matrix[i - 1][j];
-                vector<int> height = matrix[i];
 
-                sort(height.begin(), height.end());
-                for (int k = 0; k < j; ++k) {
-                    int base = k + 1;
-                    int h = height[k];
-                    maxArea = max(maxArea, base * h);
-                }
+                if (i > 0 and matrix[i][j])
+                    matrix[i][j] += matrix[i - 1][j];
+
+
+            }
+            vector<int> height = matrix[i];
+
+            sort(height.begin(), height.end(), greater<int>());
+            for (int k = 0; k < m; ++k) {
+                int base = k + 1;
+                int h = height[k];
+                maxArea = max(maxArea, base * h);
             }
         }
         return maxArea;
