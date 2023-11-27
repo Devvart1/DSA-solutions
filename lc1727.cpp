@@ -38,12 +38,11 @@ public:
             vector<int>cur(m, 0);
             for (int j = 0; j < m; ++j) {
 
-                if (i > 0 and matrix[i][j])
+                if (matrix[i][j])
                     cur[j] = prev[j] + 1;
 
             }
             prev = cur;
-
             sort(cur.begin(), cur.end(), greater<int>());
             for (int k = 0; k < m; ++k) {
                 int base = k + 1;
