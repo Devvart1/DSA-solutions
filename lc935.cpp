@@ -14,21 +14,46 @@ public:
         {2, 4}
     };
     int dp[5001][10];
-    int sol(int n, int cell) {
-        if (n == 0)return 1;
-        if (dp[n][cell] != -1)return dp[n][cell];
-        int ans = 0;
-        for (int&nextCell : adj[cell])
-            ans = (ans + sol(n - 1, nextCell)) % M;
+    // int sol(int n, int cell) {
+    //     if (n == 0)return 1;
+    //     if (dp[n][cell] != -1)return dp[n][cell];
+    //     int ans = 0;
+    //     for (int&nextCell : adj[cell])
+    //         ans = (ans + sol(n - 1, nextCell)) % M;
 
-        return dp[n][cell] = ans;
-    }
+    //     return dp[n][cell] = ans;
+    // }
+    // int knightDialer(int n) {
+    //     int result = 0;
+    //     memset(dp, -1, sizeof(dp));
+    //     for (int i = 0; i <=9; ++i) {
+    //         result = (result + sol(n - 1, i)) % M;
+    //     }
+    //     return result;
+    // }
+
     int knightDialer(int n) {
         int result = 0;
+
         memset(dp, -1, sizeof(dp));
-        for (int i = 0; i < n; ++i) {
-            result = (result + sol(n - 1, i)) % M;
+        for (int i = 0; i <= 9; ++i)
+            dp[0][i] = 1;  //base case
+
+        for (int len = 1; len <= n - 1; ++len) {
+            for (int cell = 0; cell <= 9; ++cell) {
+                int ans = 0;
+                for (int&nextCell : adj[cell]) {
+                    ans = (ans + dp[len - 1][ nextCell]) % M;
+                }
+                dp[len][cell] = ans;
+            }
+
+
         }
+        for (int i = 0; i <= 9; ++i) {
+            result = (result + dp[n - 1][i]) % M;
+        }
+
         return result;
     }
 };
