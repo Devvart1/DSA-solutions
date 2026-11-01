@@ -27,9 +27,6 @@ int maximumChocolates(int r, int c, vector<vector<int>> &grid) {
     // Write your code here.
     //dp of dp[r][c][c]
     vector<vector<vector<int>>> dp(r,vector<vector<int>>(c,vector<int>(c,-1)));
-
-
-
     for()
    return sol(0,0,c-1,r,c,grid,dp); 
 }
